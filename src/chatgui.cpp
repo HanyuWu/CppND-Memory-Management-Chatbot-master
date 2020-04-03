@@ -117,8 +117,9 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     //// STUDENT CODE
     ////
 
-    // create chat logic instance
-    _chatLogic = new ChatLogic(); 
+    // create chat logic instance 
+    _chatLogic = std::make_unique<ChatLogic>(); 
+    std::cout<< "assign smart pointer to Chatlogic in heap" << std::endl;
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
@@ -135,8 +136,8 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     //// STUDENT CODE
     ////
 
-    delete _chatLogic;
-
+    // delete _chatLogic;
+    std::cout<< "Smart Ptr gets rid of the Chatlogic in heap" << std::endl;
     ////
     //// EOF STUDENT CODE
 }
